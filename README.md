@@ -1,7 +1,8 @@
-## A full-stack application used to practice authentication and user registration from the frontend to the backend
+## A full-stack application 
+
+This is an application used to practice authentication and user registration. Users can create an account and log in to their specific profile.
 
 ### Tech Stack
-
 * NextJS 13
 * Typescript
 * MongoDB
