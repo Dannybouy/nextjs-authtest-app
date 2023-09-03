@@ -1,3 +1,15 @@
+## A full-stack application 
+
+This is an application used to practice authentication and user registration. Users can create an account and log in to their specific profile.
+
+### Tech Stack
+* NextJS 13
+* Typescript
+* MongoDB
+
+<br/>
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
