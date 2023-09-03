@@ -34,6 +34,7 @@ const SignUp = () => {
     try {
       setLoading(true);
       const response = await axios.post("/api/users/signup", user);
+      router.push("/login")
       console.log("Signup success", response);
     } catch (error: any) {
       console.log("Signup failed", error.message);
