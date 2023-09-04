@@ -5,7 +5,7 @@ const UserProfile = ({params}:any) => {
     <div className='flex flex-col items-center justify-center min-h-screen py-2'>
         <h1>Profile</h1>
         <hr />
-        <p>Profile page <span className='p-2 rounded bg-orange-500 text-black ml-2'>{params.id}</span></p>
+        <p className='mt-2'>Profile page <span className='p-2 rounded bg-blue-500 text-white ml-2'>{params.id}</span></p>
     </div>
   )
 }
