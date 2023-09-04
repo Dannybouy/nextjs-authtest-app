@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Spinner } from "@/components/Spinner";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -28,12 +29,10 @@ const LoginPage = () => {
     try {
       setLoading(true);
       const response = await axios.post("/api/users/login", user);
-      console.log("Login success", response.data);
-      toast.success("login success");
+      toast.success(response.data);
       router.push("/profile");
     } catch (error: any) {
-      console.log("login failed", error.message);
-      toast.error(error.message);
+      toast.error("Login failed");
     } finally {
       setLoading(false);
     }
@@ -46,7 +45,7 @@ const LoginPage = () => {
           <div className="p-4 sm:p-7">
             <div className="text-center">
               <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
-               {loading ? "Processing ...": "Sign in"}
+                Sign in
               </h1>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                 Dont have an account?
@@ -62,7 +61,8 @@ const LoginPage = () => {
             <div className="mt-5">
               <button
                 type="button"
-                className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+                className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+                disabled={true}
               >
                 <svg
                   className="w-4 h-auto"
@@ -151,12 +151,12 @@ const LoginPage = () => {
                       >
                         Password
                       </label>
-                      <a
+                      <Link
                         className="text-sm text-blue-600 decoration-2 hover:underline font-medium"
-                        href="../examples/html/recover-account.html"
+                        href="/forgotpassword"
                       >
                         Forgot password?
-                      </a>
+                      </Link>
                     </div>
                     <div className="relative">
                       <input
@@ -195,10 +195,11 @@ const LoginPage = () => {
 
                   <button
                     type="submit"
-                    className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+                    className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 disabled:opacity-40 disabled:cursor-not-allowed"
                     onClick={onLogin}
+                    disabled={buttonDisabled}
                   >
-                    Sign in
+                    {loading ? <Spinner /> : "Sign in"}
                   </button>
                 </div>
               </form>

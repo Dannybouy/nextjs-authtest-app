@@ -34,8 +34,9 @@ const SignUp = () => {
     try {
       setLoading(true);
       const response = await axios.post("/api/users/signup", user);
-      router.push("/login")
-      console.log("Signup success", response);
+      router.push("/login");
+      toast.success("Signup success");
+      console.log(response.data);
     } catch (error: any) {
       console.log("Signup failed", error.message);
       toast.error(error.message);
@@ -44,7 +45,6 @@ const SignUp = () => {
     }
   };
 
-  console.log(user)
   return (
     <section className="dark:bg-slate-900 bg-gray-100 flex h-screen items-center py-16">
       <main className="w-full max-w-md mx-auto p-6">
@@ -52,7 +52,7 @@ const SignUp = () => {
           <div className="p-4 sm:p-7">
             <div className="text-center">
               <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
-              {loading ? "Processing ...": "Sign up"}
+                {loading ? "Processing ..." : "Sign up"}
               </h1>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                 Already have account?
@@ -68,7 +68,8 @@ const SignUp = () => {
             <div className="mt-5">
               <button
                 type="button"
-                className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+                className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+                disabled={true}
               >
                 <svg
                   className="w-4 h-auto"
@@ -201,12 +202,12 @@ const SignUp = () => {
                       >
                         Password
                       </label>
-                      <a
+                      <Link
                         className="text-sm text-blue-600 decoration-2 hover:underline font-medium"
-                        href="../examples/html/recover-account.html"
+                        href="/forgotpassword"
                       >
                         Forgot password?
-                      </a>
+                      </Link>
                     </div>
                     <div className="relative">
                       <input
@@ -245,7 +246,7 @@ const SignUp = () => {
 
                   <button
                     type="button"
-                    className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 disabled:opacity-40"
+                    className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 disabled:opacity-40 disabled:cursor-not-allowed"
                     onClick={onSignUp}
                     disabled={buttonDisabled}
                   >
