@@ -24,11 +24,12 @@ This project is a full-stack web application that provides user authentication f
 - [MongoDB](https://www.mongodb.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [React-Hot-toast](https://react-hot-toast.com/)
+- [Mailtrap](https://mailtrap.io/)
 
 ## Features
 
 - User Registration (Sign Up)
-- Email Verification
+- Email Verification (Mailtrap)
 - User Authentication (Sign In)
 - Password Reset
 - Forgot Password
@@ -36,43 +37,38 @@ This project is a full-stack web application that provides user authentication f
 - Responsive UI (Tailwind CSS)
 - Toast Notification (React hot toast)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
 Follow these instructions to set up and run the project locally on your machine.
 
-### Prerequisites
+#### Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
 - Node.js: [Download and install Node.js](https://nodejs.org/).
 - MongoDB: [Configure MongoDB](https://docs.mongodb.com/manual/installation/).
 
-### Installation
+#### Installation
 
 1. Clone the repository:
 
 ```bash
-
    git clone https://github.com/yourusername/your-project.git
-
 ```
 
 2. Change into the project directory:
 
 ```bash
-
   cd your-project
-
 ```
 
 3. Install dependencies:
 
 ```bash
-
    npm install
-
 ```
 
 4. Set up environment variables:
@@ -80,21 +76,17 @@ Before you begin, ensure you have met the following requirements:
 Create a .env file in the project root and add the following environment variables with your configuration:
 
 ```bash
-
     MONGODB_URI=your_mongodb_url
     TOKEN_SECRET=your_jwt_secret
     DOMAIN=your_domain
     NODEMAILERUSER = your_node_mailer_user
     NODEMAILERPASSWORD = your_node_mailer_password
-
 ```
 
 5. Start the development server:
 
 ```bash
-
    npm run dev
-
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
